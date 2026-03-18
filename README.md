@@ -50,7 +50,6 @@ REST API сервис для работы с кошельками пользов
 
 ### Запуск в Docker
 
-Требуется Docker и docker-compose.
 
 ```bash
 docker compose up --build

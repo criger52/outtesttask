@@ -1,6 +1,6 @@
 from typing import AsyncGenerator
 
-from dishka import Provider, Scope, provide, make_container, make_async_container
+from dishka import Provider, Scope, provide, make_async_container
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from src.application.services.wallet_service import WalletService
@@ -11,7 +11,7 @@ from src.infrastructure.db.session import async_session_factory
 
 class DbProvider(Provider):
     @provide(scope=Scope.REQUEST)
-    async def session(self) -> AsyncGenerator[AsyncSession]:
+    async def session(self) -> AsyncGenerator[AsyncSession, None]:
         async with async_session_factory() as session:
             async with session.begin():
                 yield session
